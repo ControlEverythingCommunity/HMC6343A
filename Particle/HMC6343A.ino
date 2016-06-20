@@ -73,17 +73,17 @@ void loop()
     
 
     // Convert the data
-    int xAccl = ((data[0] * 256) + data[1]);
+    xAccl = ((data[0] * 256) + data[1]);
     if(xAccl > 32767)
     {
         xAccl -= 65536;
     }
-    int yAccl = ((data[2] * 256) + data[3]);
+    yAccl = ((data[2] * 256) + data[3]);
     if(yAccl > 32767)
     {
         yAccl -= 65536;
     }
-    int zAccl = ((data[4] * 256) + data[5]);
+    zAccl = ((data[4] * 256) + data[5]);
     if(zAccl > 32767)
     {
         zAccl -= 65536;
@@ -112,17 +112,17 @@ void loop()
     
 
     // Convert the data
-    int xMag = ((data[0] * 256) + data[1]);
+    xMag = ((data[0] * 256) + data[1]);
     if(xMag > 32767)
     {
         xMag -= 65536;
     }
-    int yMag = ((data[2] * 256) + data[3]);
+    yMag = ((data[2] * 256) + data[3]);
     if(yMag > 32767)
     {
         yMag -= 65536;
     }
-    int zMag = ((data[4] * 256) + data[5]);
+    zMag = ((data[4] * 256) + data[5]);
     if(zMag > 32767)
     {
         zMag -= 65536;
@@ -130,11 +130,15 @@ void loop()
 
     // Output data to dashboard
     Particle.publish("Acceleration in X-Axis : ", String(xAccl));
+    delay(1000);
     Particle.publish("Acceleration in Y-Axis : ", String(yAccl));
+    delay(1000);
     Particle.publish("Acceleration in Z-Axis : ", String(zAccl));
     delay(1000);
     Particle.publish("Magnetic field in X-Axis : ", String(xMag));
+    delay(1000);
     Particle.publish("Magnetic field in Y-Axis : ", String(yMag));
+    delay(1000);
     Particle.publish("Magnetic filed in Z-Axis : ", String(zMag));
     delay(1000);
 }
